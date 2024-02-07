@@ -1,10 +1,23 @@
-import plotly.graph_objects as go
-import urllib.request
-import pandas as pd
-import json
-import requests
-import os
-import inquirer
+"""
+Wikidata Tool
+
+Table of Contents:
+------------------
+1. [Overview](#overview)
+2. [Function Definitions](#function-definitions)
+    2.1. [get_wikidata_suggestions](#get_wikidata_suggestions)
+    2.2. [select_item](#select_item)
+    2.3. [get_wikidata_item_data](#get_wikidata_item_data)
+    2.4. [get_item_labels](#get_item_labels)
+    2.5. [create_dataframe](#create_dataframe)
+    2.6. [compare_dataframes](#compare_dataframes)
+    2.7. [dumps](#dumps)
+    2.8. [statistics](#statistics)
+    2.9. [conversion](#conversion)
+    2.10. [create_sankey_diagram](#create_sankey_diagram)
+    2.11. [main](#main)
+3. [Execution](#execution)
+"""
 
 
 def get_wikidata_suggestions(search_term):
