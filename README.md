@@ -1,5 +1,4 @@
-          Wikidata Tool - Automated Documentation
-
+Wikidata Tool
 
 Table of Contents:
 ------------------
