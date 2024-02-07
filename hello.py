@@ -1,19 +1,23 @@
-import plotly.graph_objects as go
-import plotly.express as px
-import pandas as pd
 import json
-import requests
 import os
-import inquirer
-from colorama import Fore, Style
+
 import numpy as np
-from tabulate import tabulate
+import pandas as pd
+import requests
+
+import inquirer
+import plotly.express as px
+import plotly.graph_objects as go
+from colorama import Fore, Style
+
+
 
 
 # TODO: Implement Showcases
 # TODO: Make Main Menu
 # TODO: Make Sankey Colorful
 # TODO: Implement Sunburst Chart(s) For combined_df
+# TODO: Handle Keyboard interrupt
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -33,6 +37,13 @@ def introduction():
     print("This tool allows you to compare common properties and values between two Wikidata entities.")
     print("You will be prompted to enter the names or IDs of the entities you want to compare.")
 
+    clear_screen()
+    print(f"{Fore.GREEN}{Style.BRIGHT}Welcome to \"Hello, Wikipedia!\"{Style.RESET_ALL}")
+    print("This tool allows you to compare common properties and values between two Wikidata entities.")
+    print("You will be prompted to enter the names or IDs of the entities you want to compare.")
+
+    print("\nA tool from Maximilian Paolucci at TU Chemnitz")
+
     print("\nUnderstanding Wikidata Information:")
     print(f"  - A {Fore.RED}Wikidata item{Style.RESET_ALL} represents a concept or object, identified by a unique identifier (QID), and contains:")
     print(f"    - {Fore.BLUE}Properties{Style.RESET_ALL}: Attributes or characteristics of the item, providing various aspects of its description.")
@@ -45,7 +56,7 @@ def introduction():
     print("  - For more details on Wikidata licensing, please refer to: https://creativecommons.org/publicdomain/zero/1.0/")
     print("\n")
 
-    input("Press Enter to continue...")
+    input("Press Enter um die Spannung nicht mehr anzuhalten...")
     print("\n")
 
 
@@ -410,6 +421,7 @@ def main():
     create_sankey_diagram(combined_df)
     sunburst(item1_df, f"Sunburst Diagram for {item1_label}")
     sunburst(item2_df, f"Sunburst Diagram for {item2_label}")
+    sunburst(combined_df, f"Sunburst Diagram for Combined Data")
 
 if __name__ == "__main__":
     main()
