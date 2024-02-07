@@ -1,13 +1,16 @@
 import plotly.graph_objects as go
+import plotly.express as px
 import pandas as pd
 import json
 import requests
 import os
 import inquirer
 from colorama import Fore, Style
+import numpy as np
 
 
 # TODO: Implement Showcases
+# TODO: Make Main Menu
 # TODO: Make Sankey Colorful
 # TODO: Implement Sunburst Chart(s) For combined_df
 
@@ -29,15 +32,15 @@ def introduction():
     print("This tool allows you to compare common properties and values between two Wikidata entities.")
     print("You will be prompted to enter the names or IDs of the entities you want to compare.")
 
-    print("\nHow Wikidata Information is Organized:")
-    print(f"  - An {Fore.RED}item{Style.RESET_ALL} represents a concept or object, identified by a unique identifier (QID), and has:")
-    print(f"    - {Fore.BLUE}Properties{Style.RESET_ALL}: Claims or attributes about the item. These describe various aspects of the item.")
-    print(f"    - {Fore.MAGENTA}Values{Style.RESET_ALL}: Simple (e.g., string or number) or complex (e.g., another {Fore.RED}item{Style.RESET_ALL} or date).")
-    print(f"    - {Fore.GREEN}Datavalues{Style.RESET_ALL}: Provide detailed information about complex {Fore.MAGENTA}values{Style.RESET_ALL}. Datavalues help specify the nature of the value, such as the data type (e.g., time, quantity) and additional details.")
+    print("\nUnderstanding Wikidata Information:")
+    print(f"  - A {Fore.RED}Wikidata item{Style.RESET_ALL} represents a concept or object, identified by a unique identifier (QID), and contains:")
+    print(f"    - {Fore.BLUE}Properties{Style.RESET_ALL}: Attributes or characteristics of the item, providing various aspects of its description.")
+    print(f"    - {Fore.MAGENTA}Values{Style.RESET_ALL}: Data associated with the properties, which can be simple (e.g., strings or numbers) or complex (e.g., another Wikidata item or date).")
+    print(f"    - {Fore.GREEN}Datavalues{Style.RESET_ALL}: Additional details specifying the nature of complex values, such as data type and precision.")
 
     print(f"{Fore.LIGHTBLUE_EX}{Style.BRIGHT}\nWikidata Licensing Information:{Style.RESET_ALL}")
-    print("  - The data used in this tool is sourced from Wikidata, a freely available knowledge base.")
-    print("  - Wikidata content is licensed under the Creative Commons Zero (CC0) License, making it effectively public domain and free to use for any purpose, without the need for attribution.")
+    print("  - The data utilized in this tool is sourced from Wikidata, a freely available knowledge base.")
+    print("  - Wikidata content is licensed under the Creative Commons Zero (CC0) License, making it effectively public domain and free to use for any purpose, without attribution requirements.")
     print("  - For more details on Wikidata licensing, please refer to: https://creativecommons.org/publicdomain/zero/1.0/")
     print("\n")
 
@@ -257,8 +260,7 @@ def dumps(item1_id, item1_data, item1_df, item2_id, item2_data, item2_df, common
     common_df.to_csv(os.path.join(csv_folder_name, 'common.csv'), index=False)
     different_df.to_csv(os.path.join(csv_folder_name, 'different.csv'), index=False)
 
-    print("\nData is saved as .json and .csv under 'wikidata_data' folder.\n")
-
+    print("\nData is saved as .json and .csv under 'wikidata_data' folder.")
 
 def statistics(common_df, different_df):
     """
@@ -274,20 +276,20 @@ def statistics(common_df, different_df):
     combined_statistics = {}
 
     common_properties = common_df['Property'].unique()
-    combined_statistics['common_properties'] = len(common_properties)
+    combined_statistics['Common Properties'] = len(common_properties)
 
     common_values_item1 = common_df['Value_item1'].unique()
     common_values_item2 = common_df['Value_item2'].unique()
     common_values = set(common_values_item1).intersection(common_values_item2)
-    combined_statistics['common_values'] = len(common_values)
+    combined_statistics['Common Values'] = len(common_values)
 
     different_properties = different_df['Property'].unique()
-    combined_statistics['different_properties'] = len(different_properties)
+    combined_statistics['Different Properties'] = len(different_properties)
 
     different_values_item1 = different_df['Value_item1'].unique()
     different_values_item2 = different_df['Value_item2'].unique()
     different_values = set(different_values_item1).symmetric_difference(different_values_item2)
-    combined_statistics['different_values'] = len(different_values)
+    combined_statistics['Different Values'] = len(different_values)
 
     return combined_statistics
 
@@ -348,6 +350,22 @@ def create_sankey_diagram(combined_df):
     fig.update_layout(title_text="Wikidata Sankey Diagram", font_size=10)
     fig.show()
 
+def sunburst(item_df, title):
+    """
+    Creates a Sunburst diagram based on the provided DataFrame.
+
+    Args:
+        item_df (DataFrame): The DataFrame containing the data for the Sunburst diagram.
+        title (str): The title for the Sunburst diagram.
+
+    Returns:
+        None
+    """
+    fig = px.sunburst(item_df, path=['Item', 'Property', 'Value'])
+    fig.update_layout(title_text=title)
+    fig.show()
+
+
 
 def main():
     """Main function to run the Wikidata tool."""
@@ -374,14 +392,16 @@ def main():
 
     combined_statistics = statistics(common_df, different_df)
 
-    print(combined_statistics)
-    print("\nCommon Properties with identical Values: ")
+    print("\nData is saved as .json and .csv under 'wikidata_data' folder.")
+    print(f"{Fore.RED}Statistics for common and different Properties/Values: {combined_statistics}{Style.RESET_ALL}")
+    print(f"\n{Style.BRIGHT}{Fore.GREEN}Common Properties with identical Values: {Style.RESET_ALL}")
     print(common_df[['Property', 'Value_item1', 'Value_item2']])
-    print("\nCommon Properties with different Values: ")
+    print(f"\n{Style.BRIGHT}{Fore.GREEN}Common Properties with different Values: {Style.RESET_ALL}")
     print(different_df)
 
     create_sankey_diagram(combined_df)
-
+    sunburst(item1_df, f"Sunburst Diagram for {item1_label}")
+    sunburst(item2_df, f"Sunburst Diagram for {item2_label}")
 
 if __name__ == "__main__":
     main()
