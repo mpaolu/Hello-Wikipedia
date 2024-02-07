@@ -7,6 +7,7 @@ import os
 import inquirer
 from colorama import Fore, Style
 import numpy as np
+from tabulate import tabulate
 
 
 # TODO: Implement Showcases
@@ -291,6 +292,16 @@ def statistics(common_df, different_df):
     different_values = set(different_values_item1).symmetric_difference(different_values_item2)
     combined_statistics['Different Values'] = len(different_values)
 
+    print(f"{Fore.RED}Statistics for common and different Properties/Values: {combined_statistics}{Style.RESET_ALL}")
+    print(f"\n{Style.BRIGHT}{Fore.GREEN}Common Properties with identical Values: {Style.RESET_ALL}")
+    print("For more Information see common.csv in the wikidata_data folder.\n")
+    print("-" * 120)
+    print(common_df[['Property', 'Value_item1', 'Value_item2']])
+    print(f"\n{Style.BRIGHT}{Fore.GREEN}Common Properties with different Values: {Style.RESET_ALL}")
+    print("For more Information see different.csv in the wikidata_data folder.\n")
+    print("-" * 120)
+    print(different_df[['Property', 'Value_item1', 'Value_item2']])
+
     return combined_statistics
 
 def conversion(combined_df):
@@ -332,6 +343,8 @@ def create_sankey_diagram(combined_df):
         targets.append(value_indices[row['Value']])
 
     labels = list(item_indices.keys()) + list(property_indices.keys()) + list(value_indices.keys())
+    item_colors = [f'rgba({np.random.randint(0, 256)}, {np.random.randint(0, 256)}, {np.random.randint(0, 256)}, 0.8)' for _ in range(len(items))]
+    line_colors = [item_colors[src % len(item_colors)] for src in sources]  # Assign line colors based on item origins
 
     fig = go.Figure(data=[go.Sankey(
         node=dict(
@@ -339,13 +352,15 @@ def create_sankey_diagram(combined_df):
             thickness=20,
             line=dict(color="black", width=0.5),
             label=labels,
-            color="blue"
+            color=item_colors  # Assign colors to nodes
         ),
         link=dict(
             source=sources,
             target=targets,
-            value=[1]*len(sources)
-        ))])
+            value=[1]*len(sources),
+            color=line_colors  # Assign line colors based on item origins
+        )
+    )])
 
     fig.update_layout(title_text="Wikidata Sankey Diagram", font_size=10)
     fig.show()
@@ -391,13 +406,6 @@ def main():
     dumps(item1_id, item1_data, item1_df, item2_id, item2_data, item2_df, common_df, different_df, combined_df, combined_json)
 
     combined_statistics = statistics(common_df, different_df)
-
-    print("\nData is saved as .json and .csv under 'wikidata_data' folder.")
-    print(f"{Fore.RED}Statistics for common and different Properties/Values: {combined_statistics}{Style.RESET_ALL}")
-    print(f"\n{Style.BRIGHT}{Fore.GREEN}Common Properties with identical Values: {Style.RESET_ALL}")
-    print(common_df[['Property', 'Value_item1', 'Value_item2']])
-    print(f"\n{Style.BRIGHT}{Fore.GREEN}Common Properties with different Values: {Style.RESET_ALL}")
-    print(different_df)
 
     create_sankey_diagram(combined_df)
     sunburst(item1_df, f"Sunburst Diagram for {item1_label}")
