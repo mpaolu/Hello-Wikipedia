@@ -16,7 +16,6 @@ def clear_screen():
 
 def introduction():
     clear_screen()
-
     print(f"{Fore.GREEN}{Style.BRIGHT}Welcome to \"Hello, Wikipedia!\"{Style.RESET_ALL}")
     print("This tool allows you to compare common properties and values between two Wikidata entities.")
     print("You will be prompted to enter the names or IDs of the entities you want to compare.")
@@ -240,7 +239,6 @@ def create_sankey_diagram(combined_df):
 
 
 def main():
-    clear_screen()
     introduction()
 
     user_search1 = input(f"{Fore.GREEN}{Style.BRIGHT}Enter the ID or name for the first Wikidata object: {Style.RESET_ALL}")
@@ -272,6 +270,6 @@ def main():
 
     create_sankey_diagram(combined_df)
 
+
 if __name__ == "__main__":
-    while True:
-        main()
+    main()
