@@ -38,13 +38,18 @@ This tool can automate the process of retrieving data, creating visualizations, 
 
 To use the Wikidata Tool, follow these steps:
 - Clone or download the repository from GitHub: [link]
-- Install the required dependencies using pip: `pip install -r requirements.txt`
+- Install the required dependencies using pip:
+
+  `pip install -r requirements.txt`
 
 
 ---------
 4. Usage:
 
-To run the Wikidata Tool, execute the `hello.py` script: `python3 hello.py`
+To run the Wikidata Tool, execute the `hello.py` script: 
+
+`python3 hello.py`
+
 Follow the on-screen instructions to enter search terms, select items, and analyze the data.
 The tool will generate documentation, save data files, and display visualizations as needed.
 
