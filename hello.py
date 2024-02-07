@@ -15,6 +15,15 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def introduction():
+    """
+    Greets the user and provides a brief introduction to the program as well as the usage of the Wikidata API.
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
     clear_screen()
     print(f"{Fore.GREEN}{Style.BRIGHT}Welcome to \"Hello, Wikipedia!\"{Style.RESET_ALL}")
     print("This tool allows you to compare common properties and values between two Wikidata entities.")
@@ -28,12 +37,24 @@ def introduction():
 
     print(f"{Fore.LIGHTBLUE_EX}{Style.BRIGHT}\nWikidata Licensing Information:{Style.RESET_ALL}")
     print("  - The data used in this tool is sourced from Wikidata, a freely available knowledge base.")
-    print("  - Wikidata content is licensed under the Creative Commons Attribution-ShareAlike License (CC BY-SA).")
-    print("  - For more details on Wikidata licensing, please refer to: https://creativecommons.org/licenses/by-sa/3.0/")
+    print("  - Wikidata content is licensed under the Creative Commons Zero (CC0) License, making it effectively public domain and free to use for any purpose, without the need for attribution.")
+    print("  - For more details on Wikidata licensing, please refer to: https://creativecommons.org/publicdomain/zero/1.0/")
+    print("\n")
+
+    input("Press Enter to continue...")
     print("\n")
 
 
 def get_wikidata_suggestions(search_term):
+    """
+    Get suggestions for Wikidata items based on the given search term.
+
+    Args:
+        search_term (str): The search term to query Wikidata.
+
+    Returns:
+        list: A list of dictionaries containing suggestions for Wikidata items.
+    """
     base_url = "https://www.wikidata.org/w/api.php"
     params = {
         "action": "wbsearchentities",
@@ -56,6 +77,15 @@ def get_wikidata_suggestions(search_term):
     return suggestions
 
 def select_item(suggestions):
+    """
+    Prompts the user to select from a list of Wikidata suggestions and returns the selected ID.
+
+    Args:
+        suggestions (list): A list of Wikidata suggestions to be presented to the user.
+
+    Returns:
+        str: The selected Wikidata ID chosen by the user.
+    """
     questions = [
         inquirer.List(
             "selected_item",
@@ -72,6 +102,15 @@ def select_item(suggestions):
     return item_id
 
 def get_wikidata_item_data(item_id):
+    """
+    Get data for a specific Wikidata item based on its ID.
+
+    Args:
+        item_id (str): The ID of the Wikidata item.
+
+    Returns:
+        dict: A dictionary containing data for the specified Wikidata item.
+    """
     base_url = "https://www.wikidata.org/w/api.php"
     params = {
         "action": "wbgetentities",
@@ -92,6 +131,15 @@ def get_wikidata_item_data(item_id):
     return filtered_item_data
 
 def get_item_labels(item_ids):
+    """
+    Get labels for Wikidata items based on their IDs.
+
+    Args:
+        item_ids (list): A list of Wikidata item IDs.
+
+    Returns:
+        dict: A dictionary mapping item IDs to their corresponding labels.
+    """
     base_url = "https://www.wikidata.org/w/api.php"
     labels = {}
     item_ids = [item_id for item_id in item_ids if item_id]
@@ -118,6 +166,16 @@ def get_item_labels(item_ids):
 
 
 def create_dataframe(item_data, item_label):
+    """
+    Create a Pandas DataFrame from Wikidata item data.
+
+    Args:
+        item_data (dict): Data for a Wikidata item.
+        item_label (str): The label of the Wikidata item.
+
+    Returns:
+        pandas.DataFrame: A DataFrame containing the item data.
+    """
     value_data = []
 
     property_ids = list(item_data.keys())
@@ -144,6 +202,18 @@ def create_dataframe(item_data, item_label):
 
 
 def compare_dataframes(item1_df, item2_df):
+    """
+    Compare two Pandas DataFrames containing Wikidata item data.
+
+    Args:
+        item1_df (pandas.DataFrame): The DataFrame for the first Wikidata item.
+        item2_df (pandas.DataFrame): The DataFrame for the second Wikidata item.
+
+    Returns:
+        tuple: A tuple containing the merged DataFrame, combined DataFrame,
+        DataFrame of common properties with identical values, and DataFrame of
+        common properties with different values.
+    """
     merged_df = pd.merge(item1_df, item2_df, on='Property', suffixes=('_item1', '_item2'))
     combined_df = pd.concat([item1_df, item2_df], ignore_index=True)
     common_df = merged_df[merged_df['Value_item1'] == merged_df['Value_item2']]
@@ -152,6 +222,22 @@ def compare_dataframes(item1_df, item2_df):
     return merged_df, combined_df, common_df, different_df
 
 def dumps(item1_id, item1_data, item1_df, item2_id, item2_data, item2_df, common_df, different_df, combined_df, combined_json, folder_name='wikidata_data'):
+    """
+    Dump data to JSON and CSV files.
+
+    Args:
+        item1_id (str): The ID of the first Wikidata item.
+        item1_data (dict): Data for the first Wikidata item.
+        item1_df (pandas.DataFrame): The DataFrame for the first Wikidata item.
+        item2_id (str): The ID of the second Wikidata item.
+        item2_data (dict): Data for the second Wikidata item.
+        item2_df (pandas.DataFrame): The DataFrame for the second Wikidata item.
+        common_df (pandas.DataFrame): DataFrame of common properties with identical values.
+        different_df (pandas.DataFrame): DataFrame of common properties with different values.
+        combined_df (pandas.DataFrame): Combined DataFrame of both Wikidata items.
+        combined_json (str): JSON representation of the combined DataFrame.
+        folder_name (str, optional): Name of the folder to save the files. Defaults to 'wikidata_data'.
+    """
     script_dir = os.path.dirname(__file__)
     folder_path = os.path.join(script_dir, folder_name)
 
@@ -175,6 +261,16 @@ def dumps(item1_id, item1_data, item1_df, item2_id, item2_data, item2_df, common
 
 
 def statistics(common_df, different_df):
+    """
+    Calculate statistics on common and different properties/values between two Wikidata items.
+
+    Args:
+        common_df (pandas.DataFrame): DataFrame of common properties with identical values.
+        different_df (pandas.DataFrame): DataFrame of common properties with different values.
+
+    Returns:
+        dict: A dictionary containing statistics on common and different properties/values.
+    """
     combined_statistics = {}
 
     common_properties = common_df['Property'].unique()
@@ -196,11 +292,26 @@ def statistics(common_df, different_df):
     return combined_statistics
 
 def conversion(combined_df):
+    """
+    Convert a Pandas DataFrame to a JSON string.
+
+    Args:
+        combined_df (pandas.DataFrame): The DataFrame to convert.
+
+    Returns:
+        str: The JSON representation of the DataFrame.
+    """
     combined_json = combined_df.to_json(orient='records', lines=True)
     return "[" + combined_json.replace('\n', ',') + "]"
 
 
 def create_sankey_diagram(combined_df):
+    """
+    Create a Sankey diagram using Plotly based on Wikidata item data.
+
+    Args:
+        combined_df (pandas.DataFrame): The combined DataFrame of Wikidata items.
+    """
     items = combined_df['Item'].unique()
     properties = combined_df['Property'].unique()
     values = combined_df['Value'].unique()
@@ -239,6 +350,7 @@ def create_sankey_diagram(combined_df):
 
 
 def main():
+    """Main function to run the Wikidata tool."""
     introduction()
 
     user_search1 = input(f"{Fore.GREEN}{Style.BRIGHT}Enter the ID or name for the first Wikidata object: {Style.RESET_ALL}")
