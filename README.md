@@ -1,5 +1,8 @@
 # Wikidata Tool
 
+![Wikidata_Stamp_Rec_Light svg](https://github.com/mpaolu/-Hello-Wikipedia-/assets/150439065/763908b5-ccdc-4cf8-af50-c9c210a33637)
+
+
 ## Table of Contents
 1. [Overview](#1-overview)
 2. [Features](#2-features)
