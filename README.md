@@ -15,12 +15,14 @@ Table of Contents:
 
 ------------
 1. Overview:
+
 The Wikidata Tool is a Python program designed to facilitate the comparison and analysis of data from Wikidata, a free and open knowledge base.
 This tool can automate the process of retrieving data, creating visualizations, and generating documentation for analysis purposes.
 
 
 ------------
 2. Features:
+
 - Retrieve suggestions for Wikidata items based on search terms.
 - Select items from suggestions using an interactive prompt.
 - Fetch data for selected Wikidata items.
@@ -33,6 +35,7 @@ This tool can automate the process of retrieving data, creating visualizations, 
 
 ----------------
 3. Installation:
+
 To use the Wikidata Tool, follow these steps:
 - Clone or download the repository from GitHub: [link]
 - Install the required dependencies using pip: `pip install -r requirements.txt`
@@ -40,6 +43,7 @@ To use the Wikidata Tool, follow these steps:
 
 ---------
 4. Usage:
+
 To run the Wikidata Tool, execute the `hello.py` script: `python3 hello.py`
 Follow the on-screen instructions to enter search terms, select items, and analyze the data.
 The tool will generate documentation, save data files, and display visualizations as needed.
@@ -47,6 +51,7 @@ The tool will generate documentation, save data files, and display visualization
 
 ----------------
 5. Dependencies:
+
 The Wikidata Tool relies on the following Python libraries:
 - Plotly: For creating interactive visualizations.
 - Pandas: For data manipulation and analysis.
@@ -58,17 +63,20 @@ The Wikidata Tool relies on the following Python libraries:
 
 ----------------
 6. Contributing:
+
 Contributions to the Wikidata Tool are welcome! To contribute, please fork the repository, make your changes,
 and submit a pull request. Be sure to follow the coding style and guidelines outlined in the CONTRIBUTING.md file.
 
 
 -----------
 7. License:
+
 This project is licensed under the MIT License. See the LICENSE file for details.
 For any questions, issues, or suggestions, please contact "maximilian.paolucci@s2020.tu-chemnitz.de".
 
 -------------------------------------
 8. Project Coherence and Relevance:
+
 "Hello, Wikipedia!" represents a coherent response to the ongoing discourse surrounding the accessibility and utilization of vast repositories of structured knowledge,
 such as Wikidata. In today's information-rich environment, the ability to efficiently navigate, analyze,
 and extract insights from large datasets is crucial for researchers, analysts, and data scientists across various domains.
