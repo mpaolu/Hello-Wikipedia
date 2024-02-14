@@ -56,12 +56,12 @@ Follow the on-screen instructions to enter search terms, select items, and analy
 
 The Wikidata Tool relies on the following Python libraries:
 
-    Plotly: For creating interactive visualizations.
-    Pandas: For data manipulation and analysis.
-    Requests: For making HTTP requests to the Wikidata API.
-    Inquirer: For interactive user prompts.
-    JSON: For handling JSON data.
-    OS: For file system operations.
+Plotly: For creating interactive visualizations.
+Pandas: For data manipulation and analysis.
+Requests: For making HTTP requests to the Wikidata API.
+Inquirer: For interactive user prompts.
+JSON: For handling JSON data.
+OS: For file system operations.
 
 Ensure these dependencies are installed in your Python environment before running the Wikidata Tool.
 
@@ -71,7 +71,7 @@ Ensure these dependencies are installed in your Python environment before runnin
 
 Contributions to the Wikidata Tool are welcome! Here is a breakdown of the code:
 
-    - Introduction Function: Provides a welcome message and introduction to the program, explaining its purpose and how to use it.
+- Introduction Function: Provides a welcome message and introduction to the program, explaining its purpose and how to use it.
 - Wikidata API Functions:
     - get_wikidata_suggestions: Retrieves suggestions from Wikidata based on a search term.
     - select_item: Prompts the user to select an item from a list of suggestions.
