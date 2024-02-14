@@ -48,7 +48,10 @@ To run the Wikidata Tool, execute the `hello.py` script:
 python3 hello.py
 
 Follow the on-screen instructions to enter search terms, select items, and analyze the data. The tool will generate documentation, save data files, and display visualizations as needed.
-Dependencies
+
+---
+
+## Dependencies
 
 The Wikidata Tool relies on the following Python libraries:
 
@@ -81,12 +84,16 @@ Visualization Functions:
     sunburst: Generates a sunburst chart based on the data.
 Main Function: Executes the main logic of the program, prompting the user for input, fetching data, comparing it, and then displaying statistics and visualizations.
 
-License
+---
+
+## License
 
 This project is licensed under the MIT License. See the LICENSE file for details. For any questions, issues, or suggestions, please contact "maximilian.paolucci@s2020.tu-chemnitz.de".
 Project Coherence and Relevance
 
-Project Coherence and Relevance
+---
+
+## Project Coherence and Relevance
 
 The Wikidata Tool addresses the growing need for efficient data analysis and exploration tools in the era of big data and open knowledge. By focusing on Wikidata, a central repository of structured data with broad coverage across domains, the tool offers a valuable resource for researchers, educators, developers, and enthusiasts seeking to leverage structured knowledge for various purposes.
 
