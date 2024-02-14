@@ -86,6 +86,8 @@ License
 This project is licensed under the MIT License. See the LICENSE file for details. For any questions, issues, or suggestions, please contact "maximilian.paolucci@s2020.tu-chemnitz.de".
 Project Coherence and Relevance
 
+Project Coherence and Relevance
+
 The Wikidata Tool addresses the growing need for efficient data analysis and exploration tools in the era of big data and open knowledge. By focusing on Wikidata, a central repository of structured data with broad coverage across domains, the tool offers a valuable resource for researchers, educators, developers, and enthusiasts seeking to leverage structured knowledge for various purposes.
 
 The coherence and relevance of the Wikidata Tool stem from its alignment with key trends and challenges in the fields of data science, knowledge management, and information retrieval. In today's interconnected world, where information is abundant but often fragmented, tools like the Wikidata Tool play a crucial role in bridging the gap between data sources and end users, enabling seamless access to structured knowledge and insights.
