@@ -93,6 +93,7 @@ Contributions to the Wikidata Tool are welcome! Here is a breakdown of the code:
 7. License:
 
 This project is licensed under the MIT License. See the LICENSE file for details. For any questions, issues, or suggestions, please contact "maximilian.paolucci@s2020.tu-chemnitz.de".
+
 -------------------------------------
 8. Project Coherence and Relevance:
 
