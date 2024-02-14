@@ -1,64 +1,105 @@
-# Wikidata Tool
+Wikidata Tool
 
-![Wikidata_Stamp_Rec_Light svg](https://github.com/mpaolu/-Hello-Wikipedia-/assets/150439065/763908b5-ccdc-4cf8-af50-c9c210a33637)
+Table of Contents:
+------------------
+1. Overview
+2. Features
+3. Installation
+4. Usage
+5. Dependencies
+6. Contributing
+7. License
+8. Project Coherence and Relevance
 
 
-## Table of Contents
-1. [Overview](#1-overview)
-2. [Features](#2-features)
-3. [Installation](#3-installation)
-4. [Usage](#4-usage)
-5. [Dependencies](#5-dependencies)
-6. [Contributing](#6-contributing)
-7. [License](#7-license)
-8. [Project Coherence and Relevance](#8-project-coherence-and-relevance)
+------------
+1. Overview:
 
-## 1. Overview
+The Wikidata Tool is a Python program designed to facilitate the comparison and analysis of data from Wikidata, a free and open knowledge base maintained by the Wikimedia Foundation. The tool provides a user-friendly interface to interact with the vast amount of structured data available on Wikidata, enabling users to retrieve, compare, visualize, and analyze information about various entities, including people, places, events, and concepts.
 
-The Wikidata Tool is a Python program designed to facilitate the comparison and analysis of data from Wikidata, a free and open knowledge base. This tool can automate the process of retrieving data, creating visualizations, and generating documentation for analysis purposes.
+Using the Wikidata Tool, users can efficiently explore relationships between different entities, identify commonalities and differences, and gain insights into the wealth of knowledge stored in Wikidata. Whether conducting research, creating educational materials, or simply satisfying curiosity, the Wikidata Tool offers a versatile platform for harnessing the power of structured data.
 
-## 2. Features
 
-- Retrieve suggestions for Wikidata items based on search terms.
-- Select items from suggestions using an interactive prompt.
-- Fetch data for selected Wikidata items.
-- Compare data between two Wikidata items.
-- Generate statistics on common and different properties/values.
-- Create Sankey diagrams to visualize data relationships.
-- Save data to JSON and CSV files for further analysis.
-- Highly modular and extensible for customization.
+------------
+2. Features:
 
-## 3. Installation
+- Search and Selection: Retrieve suggestions for Wikidata items based on search terms and select items of interest using an interactive prompt.
+- Data Retrieval: Fetch detailed data for selected Wikidata items, including properties, values, and metadata.
+- Comparison: Compare data between two Wikidata items to identify common properties/values and differences.
+- Statistical Analysis: Generate statistics on common and different properties/values to quantify similarities and discrepancies.
+- Visualization: Create interactive visualizations, including Sankey diagrams and network graphs, to visualize relationships and patterns in the data.
+- Data Export: Save data and analysis results in JSON and CSV formats for further exploration and documentation.
+- Modular and Extensible: The codebase is highly modular and extensible, allowing for easy customization and integration with other projects.
+
+
+
+----------------
+3. Installation:
 
 To use the Wikidata Tool, follow these steps:
-- Clone or download the repository from GitHub: [link]
-- Install the required dependencies using pip: `pip install -r requirements.txt`
 
-## 4. Usage
+- Clone or download the repository from GitHub: [link]
+- Ensure Python 3.x is installed on your system.
+
+
+
+---------
+4. Usage:
 
 To run the Wikidata Tool, execute the `hello.py` script: `python3 hello.py`
 
 Follow the on-screen instructions to enter search terms, select items, and analyze the data. The tool will generate documentation, save data files, and display visualizations as needed.
 
-## 5. Dependencies
+
+----------------
+5. Dependencies:
 
 The Wikidata Tool relies on the following Python libraries:
-- Plotly: For creating interactive visualizations.
-- Pandas: For data manipulation and analysis.
-- Requests: For making HTTP requests to the Wikidata API.
-- Inquirer: For interactive user prompts.
-- JSON: For handling JSON data.
-- OS: For file system operations.
 
-## 6. Contributing
+    Plotly: For creating interactive visualizations.
+    Pandas: For data manipulation and analysis.
+    Requests: For making HTTP requests to the Wikidata API.
+    Inquirer: For interactive user prompts.
+    JSON: For handling JSON data.
+    OS: For file system operations.
 
-Contributions to the Wikidata Tool are welcome! To contribute, please fork the repository, make your changes, and submit a pull request. Be sure to follow the coding style and guidelines outlined in the CONTRIBUTING.md file.
+Ensure these dependencies are installed in your Python environment before running the Wikidata Tool.
 
-## 7. License
+
+----------------
+6. Contributing:
+
+Contributions to the Wikidata Tool are welcome! Here is a breakdown of the code:
+
+    - Introduction Function: Provides a welcome message and introduction to the program, explaining its purpose and how to use it.
+- Wikidata API Functions:
+    - get_wikidata_suggestions: Retrieves suggestions from Wikidata based on a search term.
+    - select_item: Prompts the user to select an item from a list of suggestions.
+    - get_wikidata_item_data: Fetches data for a Wikidata item.
+    - get_item_labels: Retrieves labels for Wikidata items.
+    - create_dataframe: Creates a DataFrame from Wikidata item data.
+    - compare_dataframes: Compares data between two DataFrames.
+- Data Output Functions:
+    - dumps: Saves data and results in JSON and CSV formats.
+    - statistics: Computes and prints statistics about the compared data.
+- Visualization Functions:
+    - create_sankey_diagram: Generates a Sankey diagram based on the data.
+    - create_network_graph: Creates a network graph based on the merged data.
+    - sunburst: Generates a sunburst chart based on the data.
+- Main Function: Executes the main logic of the program, prompting the user for input, fetching data, comparing it, and then displaying statistics and visualizations.
+
+
+-----------
+7. License:
 
 This project is licensed under the MIT License. See the LICENSE file for details. For any questions, issues, or suggestions, please contact "maximilian.paolucci@s2020.tu-chemnitz.de".
+-------------------------------------
+8. Project Coherence and Relevance:
 
-## 8. Project Coherence and Relevance
+The Wikidata Tool addresses the growing need for efficient data analysis and exploration tools in the era of big data and open knowledge. By focusing on Wikidata, a central repository of structured data with broad coverage across domains, the tool offers a valuable resource for researchers, educators, developers, and enthusiasts seeking to leverage structured knowledge for various purposes.
 
-"Hello, Wikipedia!" represents a coherent response to the ongoing discourse surrounding the accessibility and utilization of vast repositories of structured knowledge, such as Wikidata. In today's information-rich environment, the ability to efficiently navigate, analyze, and extract insights from large datasets is crucial for researchers, analysts, and data scientists across various domains. By focusing on Wikidata, a central hub of structured data, this tool taps into a significant resource that spans diverse topics, from historical events and geographical locations to scientific discoveries and cultural artifacts. The relevance of the Wikidata Tool lies in its capacity to streamline the process of extracting meaningful information from Wikidata, which serves as a repository for knowledge contributed by a global community of editors. With the tool's automated functionality, users can quickly retrieve relevant suggestions, select items of interest, and perform comparative analyses without the need for manual data extraction or processing. This efficiency is particularly valuable in research contexts where time is of the essence,enabling scholars to focus on interpreting insights rather than laborious data collection. Moreover, the originality of the question addressed by the Wikidata Tool lies in its approach to operationalizing complex analyses within a user-friendly interface. By translating abstract research questions into concrete analytical procedures, the tool empowers users to explore relationships between Wikidata entities, identify commonalities and discrepancies, and visualize data patterns through interactive Sankey diagrams. This operationalization bridges the gap between theoretical inquiries and practical applications, facilitating a more nuanced understanding of the structured knowledge available in Wikidata. In terms of technical procedures, the Wikidata Tool employs robust methodologies for data retrieval, processing, and visualization, underpinned by industry-standard libraries and best practices in software development. Through critical reflection on these technical aspects, the tool ensures the accuracy, reliability, and reproducibility of its analyses, thereby enhancing the trustworthiness of its findings. Ultimately, the results generated by the Wikidata Tool are not confined to the tool itself but are situated within a broader context of scholarly inquiry and knowledge dissemination. By providing users with the means to document their analyses, export data files, and share insights with peers, the tool contributes to the ongoing discourse on collaborative research practices, open data access, and transparent data-driven decision-making.
+The coherence and relevance of the Wikidata Tool stem from its alignment with key trends and challenges in the fields of data science, knowledge management, and information retrieval. In today's interconnected world, where information is abundant but often fragmented, tools like the Wikidata Tool play a crucial role in bridging the gap between data sources and end users, enabling seamless access to structured knowledge and insights.
 
+Furthermore, the Wikidata Tool exemplifies best practices in software development, including modular design, extensibility, and usability. By adopting industry-standard libraries and following established coding conventions, the tool ensures reliability, maintainability, and interoperability, thereby enhancing its value and utility for a wide range of users.
+
+Overall, the Wikidata Tool represents a coherent and relevant response to the evolving needs and challenges of data-driven research, education, and innovation. Through ongoing development, collaboration, and community engagement, the tool aims to empower users to harness the full potential of structured data for informed decision-making, knowledge discovery, and societal impact.
