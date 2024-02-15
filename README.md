@@ -34,7 +34,8 @@ Wikidata is a central repository of metadata accessible to others, such as the W
 The structural format of the data available at Wikidata can be viewed here:
 https://www.wikidata.org/wiki/Wikidata:Introduction
 
-WIKIDATE IMAGE
+![grafik](https://github.com/mpaolu/-Hello-Wikipedia-/assets/150439065/1e5dcefc-711b-4827-9b64-6169d9378a8f)
+
 
 The main thing for this program are the categories
      - label = human-readable label of the Wikidata entry
