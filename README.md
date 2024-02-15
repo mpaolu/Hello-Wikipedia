@@ -5,10 +5,11 @@ A Python tool for comparison, analysis and visualization between Wikidata articl
 ## Table of Contents
 1. [Overview](#overview)
 2. [Features](#features)
-3. [How to read Wikidata Data](#how_to_read_wikidata_data)
-4. [Installation and use](#installation_and_use)
-5. [Contribution and information about the code](#contributing)
+3. [How to read Wikidata Data](#how-to-read-wikidata-data)
+4. [Installation and Use](#installation-and-use)
+5. [Contribution and Information about the Code](#contribution-and-information-about-the-code)
 6. [License](#license)
+7. [FAQs](#faqs)
 
 ## Overview
 This Python program was created as part of the “Data Analysis and Visualization” course at Chemnitz University of Technology and is based on my own experience in literature research in the humanities. Here it can often be very complex to uncover certain properties or overarching connections between fields of knowledge in order to be able to use these later as a basis for further investigations. The Wikifoundation pages can often provide initial access to these fields of knowledge, but are tied to individual entries per page and the nature of written language.
@@ -38,11 +39,11 @@ https://www.wikidata.org/wiki/Wikidata:Introduction
 
 
 The main categories for this program are
-     - label = human-readable label of the Wikidata entry
-     - item identifier = wikidata internal identifier of the Wikidata entry
-     - description = human-readable description for contextualization of the Wikidata entry
-     - property = describes the data value of a statement of a wikidata entry
-     - value = value a property can take. values can in turn also be wikidata items (especially here, since only entries with datatype = 'wikibase-item' were included)
+     * label = human-readable label of the Wikidata entry
+     * item identifier = wikidata internal identifier of the Wikidata entry
+     * description = human-readable description for contextualization of the Wikidata entry
+     * property = describes the data value of a statement of a wikidata entry
+     * value = value a property can take. values can in turn also be wikidata items (especially here, since only entries with datatype = 'wikibase-item' were included)
 
 
 The following would certainly be interesting for further work on the program:
@@ -53,12 +54,12 @@ The following would certainly be interesting for further work on the program:
 ## Installation and use:
 To use the program you must install the following Python libraries:
 
-requests==2.26.0
-inquirer==2.7.0
-pandas==1.3.3
-plotly==5.3.1
-networkx==2.7.2
-colorama==0.4.4
+- requests==2.26.0
+- inquirer==2.7.0
+- pandas==1.3.3
+- plotly==5.3.1
+- networkx==2.7.2
+- colorama==0.4.4
 
 Then you can run the "hello.py" program from the CMD via the "python3 hello.py" command from the program's location. All necessary folders to back up the data locally are created for you.
 
