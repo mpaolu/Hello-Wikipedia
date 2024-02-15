@@ -37,7 +37,7 @@ https://www.wikidata.org/wiki/Wikidata:Introduction
 ![grafik](https://github.com/mpaolu/-Hello-Wikipedia-/assets/150439065/1e5dcefc-711b-4827-9b64-6169d9378a8f)
 
 
-The main thing for this program are the categories
+The main categories for this program are
      - label = human-readable label of the Wikidata entry
      - item identifier = wikidata internal identifier of the Wikidata entry
      - description = human-readable description for contextualization of the Wikidata entry
