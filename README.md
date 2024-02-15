@@ -20,6 +20,13 @@ Since this is my first Python program and I would like to underline my enthusias
 
 In particular, this tool makes it possible to identify similarities and differences and to gain insights into the amount of knowledge stored in Wikidata. Whether you're researching, creating educational materials, or simply satisfying your curiosity, the Wikidata tool provides a versatile platform to harness the power of structured data. The tool was written in English and works with the English entries on Wikidata. On the one hand, this is because the internationality and open source idea of the platform should be underlined, and on the other hand, the English data set is the largest.
 
+Wikidata Licensing Information:
+
+The data utilized in this tool is sourced from Wikidata, a freely available knowledge base.")
+Wikidata content is licensed under the Creative Commons Zero (CC0) License, making it effectively public domain and free to use for any purpose, without attribution requirements.")
+For more details on Wikidata licensing, please refer to: https://www.wikidata.org/wiki/Wikidata:Licensing")
+
+
 
 ## Features
 The program has three overarching parts:
