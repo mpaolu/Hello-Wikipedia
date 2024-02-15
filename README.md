@@ -103,6 +103,10 @@ Project Coherence and Relevance
 
 There is already a number of very interesting wiki tools. However, all of them focus on the analysis and/or presentation of individual pages or closed aspects, such as family trees or geographical locations. With this programs capability of comparing two articles, it represent a unique aspect that has not been published yet, last but not least because all articles can also be analyzed and compared without restrictions according to type, genre or concept.
 
+*What are the future prospects for the program?*
+
+In the future, the program will be accessible online. For this purpose, I am already testing various publication platforms, including wiki tools that make publication on their servers possible. However, new skills must be acquired, such as working in new environments such as "Flask" and creating new file formats such as CSS and HTML.
+
 *Are further visualizations planned?*
 
 Yes! The visualizations implemented so far already work quite well, but depending on the articles selected, they may pose problems in terms of insight potential due to the amount of data displayed. Unfortunately, the sunburst diagram cannot be implemented more elegantly because there are no shared entities in the plotly code at the base level (root).
