@@ -136,3 +136,7 @@ __Cons__:
 - Limited representation of data: So far, no representation has been implemented in other formats that show further connections between items, such as networks or statistical graphs
 - Limited support for complex data: So far the data set only consists of statements with “datatype == wikibase-item”, i.e. other data types such as numbers, time information or geodata are not taken into account
 - Not primarily suitable for serious science and research: Due to a lack of data integrity, the tool is not intended for professional discussion of information
+- 
+
+*Known issues*
+- Network Graph breaks when not receiving any values for a node
