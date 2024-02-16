@@ -80,20 +80,20 @@ Here is a breakdown of my code:
 
 1. Introduction Function: Provides a welcome message and introduction to the program, explaining its purpose and how to use it.
 2. Wikidata API Functions:
-     get_wikidata_suggestions: Retrieves suggestions from Wikidata based on a search term.
-     select_item: Prompts the user to select an item from a list of suggestions.
-     get_wikidata_item_data: Fetches data for a Wikidata item.
-     get_item_labels: Retrieves labels for Wikidata items.
-     create_dataframe: Creates a DataFrame from Wikidata item data.
-     compare_dataframes: Compares data between two DataFrames.
+- get_wikidata_suggestions: Retrieves suggestions from Wikidata based on a search term.
+- select_item: Prompts the user to select an item from a list of suggestions.
+- get_wikidata_item_data: Fetches data for a Wikidata item.
+- get_item_labels: Retrieves labels for Wikidata items.
+- create_dataframe: Creates a DataFrame from Wikidata item data.
+- compare_dataframes: Compares data between two DataFrames.
 3. Data Output Functions:
-     dumps: Saves data and results in JSON and CSV formats.
-     statistics: Computes and prints statistics about the compared data.
+- dumps: Saves data and results in JSON and CSV formats.
+- statistics: Computes and prints statistics about the compared data.
 4. Visualization functions:
-     create_sankey_diagram: Generates a Sankey diagram based on the data.
-     create_network_graph: Creates a network graph based on the merged data.
-     sunburst: Generates a sunburst chart based on the data.
-Main Function: Executes the main logic of the program, prompting the user for input, fetching data, comparing it, and then displaying statistics and visualizations
+- create_sankey_diagram: Generates a Sankey diagram based on the data.
+- create_network_graph: Creates a network graph based on the merged data.
+- sunburst: Generates a sunburst chart based on the data.
+5. Main Function: Executes the main logic of the program, prompting the user for input, fetching data, comparing it, and then displaying statistics and visualizations
 
 
 
